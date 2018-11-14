@@ -59,7 +59,5 @@ def main():
     with open(manifest_cache, 'w') as fp:
         json.dump(manifests, fp)
 
-
-    print manifests   
 if __name__ == "__main__":
     main()

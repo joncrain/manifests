@@ -1,0 +1,12 @@
+{
+    "link": "manifests Link",
+    "listing": {
+        "title": "Munki Manifests"
+    },
+    "report": {
+        "title": "Munki Manifests Report"
+    },
+    "widget": {
+        "title": "Munki Manifests Widget"
+    }
+}

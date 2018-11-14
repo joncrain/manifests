@@ -8,5 +8,6 @@
     },
     "widget": {
         "title": "Munki Manifests Widget"
-    }
+    },
+    "manifest_name": "Manifest Name"
 }

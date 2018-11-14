@@ -19,6 +19,7 @@ new Manifests_model;
 		      	<th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
 		        <th data-i18n="serial" data-colname='reportdata.serial_number'></th>
 		        <th data-i18n="username" data-colname='reportdata.long_username'></th>
+		        <th data-i18n="manifests.manifest_name" data-colname='manifests.manifest_name'></th>
 		      </tr>
 		    </thead>
 		    <tbody>

@@ -9,6 +9,14 @@ class Manifests_model extends \Model {
 		$this->rs['id'] = '';
 		$this->rs['serial_number'] = $serial; $this->rt['serial_number'] = 'VARCHAR(255) UNIQUE';
         $this->rs['manifest_name'] = '';
+        $this->rs['manifest_catalogs'] = '';
+        $this->rs['manifest_included_manifests'] = '';
+        $this->rs['manifest_managed_installs'] = '';
+        $this->rs['manifest_managed_uninstalls'] = '';
+        $this->rs['manifest_optional_installs'] = '';
+        $this->rs['manifest_managed_updates'] = '';
+        $this->rs['manifest_featured_items'] = '';
+        $this->rs['manifest_conditional_items'] = '';
 
         // Array with fields that can't be set by process
         $this->restricted = array('id', 'serial_number');
@@ -29,36 +37,27 @@ class Manifests_model extends \Model {
 	// ------------------------------------------------------------------------
 
 	/**
-	 * Process data sent by postflight
-	 *
-	 * @param string data
-	 *
-	 **/
-	function process($data)
+	* Process data sent by postflight
+	*
+	* @param string data
+	* @author joncrain
+    * based on homebrew by tuxudo
+	**/
+	function process($json)
 	{
-
-        // This array will hold fields that can be populated
-        $fillable = array();
-
-		//clear any previous data we had
-		foreach($this->rs as $field => $value) {
-			if( ! in_array($field, $this->restricted)){
-                $fillable[] = $field;
-                $this->$field = '';
-            }
+        // Check if data was uploaded
+        if (! $json ) {
+            throw new Exception("Error Processing Request: No JSON file found", 1);
 		}
-		// Parse data
-        $sep = ' = ';
-		foreach(explode("\n", $data) as $line) {
-            echo $line;
-            list($key, $val) = explode($sep, $line);
-
-            if( in_array($key, $fillable)){
-                $this->$key = $val;
-            }
-
-		} //end foreach explode lines
-
+        // Process json into object thingy
+		$data = json_decode($json, true);
+		foreach ($data as $single_manifest) {
+			// Traverse the manifest
+			foreach($single_manifest as $key => $field) {
+				$this->manifest_name = $key;
+				$this->manifest_catalog = $key['catalogs'];
+			}
+		}
 		$this->save();
 	}
 }

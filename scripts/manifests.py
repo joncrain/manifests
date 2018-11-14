@@ -1,11 +1,8 @@
 #!/usr/bin/python
-"""
-Filter the results of munki's MANAGED_INSTALL_REPORT.plist
-'ManifestName'
-"""
 import plistlib
-import sys
 import os
+import sys
+import json
 import CoreFoundation
 
 DEBUG = False
@@ -19,11 +16,11 @@ managed_install_dir = CoreFoundation.CFPreferencesCopyAppValue(
 
 # set the paths based on munki's configuration.
 if managed_install_dir:
-    MANAGED_INSTALL_REPORT = os.path.join(
-        managed_install_dir, 'ManagedInstallReport.plist')
+    MANAGED_INSTALL_MANIFESTS = os.path.join(
+        managed_install_dir, 'manifests')
 else:
-    MANAGED_INSTALL_REPORT = os.path.join(
-        default_install_dir, 'ManagedInstallReport.plist')
+    MANAGED_INSTALL_MANIFESTS = os.path.join(
+        default_install_dir, 'manifests')
 
 # Don't skip manual check
 if len(sys.argv) > 1:
@@ -40,23 +37,6 @@ def dict_from_plist(path):
     except Exception, message:
         raise Exception("Error creating plist from output: %s" % message)
 
-def manifest_recurser(manifest):
-    child_dict = {}
-    '''Recursive expansion of included manifests'''
-    manifest_dict = dict_from_plist('/Library/Managed Installs/manifests/%s' % manifest)
-    # No infinite loop checking! Be wary!
-    for k,v in manifest_dict.iteritems():
-        child_dict[k] = v
-        if k is 'included_manifests':
-            for item in manifest_dict['included_manifests']:
-                if item:
-                    child_dict[item] = manifest_recurser(item)
-    if 'included_manifests' in manifest_dict: 
-        for item in manifest_dict['included_manifests']:
-            if item:
-                child_dict[item] = manifest_recurser(item)
-    return child_dict
-
 def main():
     """Main"""
     # Create cache dir if it does not exist
@@ -64,26 +44,22 @@ def main():
     if not os.path.exists(cachedir):
         os.makedirs(cachedir)
 
-    # Check if MANAGED_INSTALL_REPORT exists
-    if not os.path.exists(MANAGED_INSTALL_REPORT):
-        print '%s is missing.' % MANAGED_INSTALL_REPORT
-        install_report = {}
+    # Check if MANAGED_INSTALL_MANIFESTS exists
+    if not os.path.exists(MANAGED_INSTALL_MANIFESTS):
+        print '%s is missing.' % MANAGED_INSTALL_MANIFESTS
+        manifests = {}
     else:
-        install_report = dict_from_plist(MANAGED_INSTALL_REPORT)
+        manifests = {}
+        for manifest in os.listdir(MANAGED_INSTALL_MANIFESTS):
+            manifest_path = os.path.join(MANAGED_INSTALL_MANIFESTS, manifest)
+            manifests[manifest] = dict_from_plist(manifest_path)
+
+    manifest_cache = os.path.join(cachedir, 'manifests.json')
+
+    with open(manifest_cache, 'w') as fp:
+        json.dump(manifests, fp)
 
 
-    # pylint: disable=E1103
-    report_list = {}
-    report_list['MainManifest'] = install_report['ManifestName']
-    manifest = manifest_recurser(install_report['ManifestName'])
-    report_list[install_report['ManifestName']] = manifest
-    # pylint: enable=E1103
-
-    if DEBUG:
-        PP.pprint(report_list)
-
-    # Write report to cache
-    plistlib.writePlist(report_list, "%s/manifest.plist" % cachedir)
-
+    print manifests   
 if __name__ == "__main__":
     main()

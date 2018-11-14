@@ -57,7 +57,7 @@ def main():
     manifest_cache = os.path.join(cachedir, 'manifests.json')
 
     with open(manifest_cache, 'w') as fp:
-        json.dump(manifests, fp)
+        json.dump(manifests, fp, indent=4)
 
 if __name__ == "__main__":
     main()

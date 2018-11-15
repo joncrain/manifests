@@ -12,14 +12,15 @@ class Manifests extends Migration
             $table->increments('id');
             $table->string('serial_number')->unique();
             $table->string('manifest_name')->nullable();
-            $table->string('manifest_catalogs')->nullable();
-            $table->string('manifest_included_manifests')->nullable();
-            $table->string('manifest_managed_installs')->nullable();
-            $table->string('manifest_managed_uninstalls')->nullable();
-            $table->string('manifest_optional_installs')->nullable();
-            $table->string('manifest_managed_updates')->nullable();
-            $table->string('manifest_featured_items')->nullable();
-            $table->string('manifest_conditional_items')->nullable();
+            $table->string('catalogs')->nullable();
+            $table->string('included_manifests')->nullable();
+            $table->string('managed_installs')->nullable();
+            $table->string('managed_uninstalls')->nullable();
+            $table->string('optional_installs')->nullable();
+            $table->string('managed_updates')->nullable();
+            $table->string('featured_items')->nullable();
+            $table->string('condition')->nullable();
+            $table->string('conditional_items')->nullable();
         });
     }
     

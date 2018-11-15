@@ -7,30 +7,19 @@ class Manifests_model extends \Model {
 	{
 		parent::__construct('id', 'manifests'); //primary key, tablename
 		$this->rs['id'] = '';
-		$this->rs['serial_number'] = $serial; $this->rt['serial_number'] = 'VARCHAR(255) UNIQUE';
+		$this->rs['serial_number'] = $serial;
         $this->rs['manifest_name'] = '';
-        $this->rs['manifest_catalogs'] = '';
-        $this->rs['manifest_included_manifests'] = '';
-        $this->rs['manifest_managed_installs'] = '';
-        $this->rs['manifest_managed_uninstalls'] = '';
-        $this->rs['manifest_optional_installs'] = '';
-        $this->rs['manifest_managed_updates'] = '';
-        $this->rs['manifest_featured_items'] = '';
-        $this->rs['manifest_conditional_items'] = '';
+        $this->rs['catalogs'] = '';
+        $this->rs['included_manifests'] = '';
+        $this->rs['managed_installs'] = '';
+        $this->rs['managed_uninstalls'] = '';
+        $this->rs['optional_installs'] = '';
+        $this->rs['managed_updates'] = '';
+        $this->rs['featured_items'] = '';
+        $this->rs['condition'] = '';
+        $this->rs['conditional_items'] = '';
 
-        // Array with fields that can't be set by process
-        $this->restricted = array('id', 'serial_number');
-
-		// Schema version, increment when creating a db migration
-		$this->schema_version = 0;
-
-		// Create table if it does not exist
-		//$this->create_table();
-
-		if ($serial)
-			$this->retrieveOne('serial_number=?', $serial);
-
-		$this->serial = $serial;
+		$this->serial_number = $serial;
 
 	}
 
@@ -51,13 +40,22 @@ class Manifests_model extends \Model {
 		}
         // Process json into object thingy
 		$data = json_decode($json, true);
-		foreach ($data as $single_manifest) {
-			// Traverse the manifest
-			foreach($single_manifest as $key => $field) {
-				$this->manifest_name = $key;
-				$this->manifest_catalog = $key['catalogs'];
+
+		foreach ($data as $manifest_name => $manifest_array) {
+			// traversing the manifests!
+			$this->manifest_name = $manifest_name;
+			foreach($manifest_array as $key => $value) {
+				//conditional items need more processing
+				if ($key == 'conditional_items'){
+					// figure out this process
+                } else if ($key == 'display_name'){
+					// maybe don't need this
+				} else {
+					$this->$key = implode(", ", $value);
+				}
 			}
 		}
+		$this->id = '';
 		$this->save();
 	}
 }

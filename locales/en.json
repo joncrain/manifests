@@ -9,5 +9,7 @@
     "widget": {
         "title": "Munki Manifests Widget"
     },
-    "manifest_name": "Manifest Name"
+    "manifest_name": "Manifest Name",
+    "catalogs": "Catalogs",
+    "managed_installs": "Managed Installs"
 }

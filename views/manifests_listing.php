@@ -20,6 +20,8 @@ new Manifests_model;
 		        <th data-i18n="serial" data-colname='reportdata.serial_number'></th>
 		        <th data-i18n="username" data-colname='reportdata.long_username'></th>
 		        <th data-i18n="manifests.manifest_name" data-colname='manifests.manifest_name'></th>
+		        <th data-i18n="manifests.catalogs" data-colname='manifests.catalogs'></th>
+		        <th data-i18n="manifests.managed_installs" data-colname='manifests.managed_installs'></th>
 		      </tr>
 		    </thead>
 		    <tbody>

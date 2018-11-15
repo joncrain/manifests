@@ -1,0 +1,8 @@
+{
+    "name": "joncrain/mr-manifests",
+    "description": "Munki Manifest module for munkireport.",
+    "license": "MIT",
+    "require": {
+        "php":"^7.0"
+    }
+}

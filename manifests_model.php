@@ -8,19 +8,18 @@ class Manifests_model extends \Model {
 		parent::__construct('id', 'manifests'); //primary key, tablename
 		$this->rs['id'] = '';
 		$this->rs['serial_number'] = $serial;
-        $this->rs['manifest_name'] = '';
-        $this->rs['catalogs'] = '';
-        $this->rs['included_manifests'] = '';
-        $this->rs['managed_installs'] = '';
-        $this->rs['managed_uninstalls'] = '';
-        $this->rs['optional_installs'] = '';
-        $this->rs['managed_updates'] = '';
-        $this->rs['featured_items'] = '';
-        $this->rs['condition'] = '';
-        $this->rs['conditional_items'] = '';
+		$this->rs['manifest_name'] = '';
+		$this->rs['catalogs'] = '';
+		$this->rs['included_manifests'] = '';
+		$this->rs['managed_installs'] = '';
+		$this->rs['managed_uninstalls'] = '';
+		$this->rs['optional_installs'] = '';
+		$this->rs['managed_updates'] = '';
+		$this->rs['featured_items'] = '';
+		$this->rs['condition'] = '';
+		$this->rs['conditional_items'] = '';
 
 		$this->serial_number = $serial;
-
 	}
 
 	// ------------------------------------------------------------------------

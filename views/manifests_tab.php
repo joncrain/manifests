@@ -28,7 +28,7 @@ $(document).on('appReady', function(){
 					.append($('<i>')
 						.addClass('fa fa-book'))
 					.append(' '+d.manifest_name))
-				.append($('<div style="max-width:900px;">')
+				.append($('<div style="max-width:1600px;">')
 					.addClass('table-responsive')
 					.append($('<table>')
 						.addClass('table table-striped table-condensed')

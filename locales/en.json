@@ -1,5 +1,5 @@
 {
-    "link": "manifests Link",
+    "link": "Manifests Link",
     "listing": {
         "title": "Munki Manifests"
     },
@@ -11,5 +11,12 @@
     },
     "manifest_name": "Manifest Name",
     "catalogs": "Catalogs",
+    "included_manifests": "Included Manifests",
+    "managed_uninstalls": "Managed Uninstalls",
+    "optional_installs": "Optional Installs",
+    "display_name": "Display Name",
+    "managed_updates": "Managed Updates",
+    "featured_items": "Featured Items",
+    "clienttab": "Munki Manifests",
     "managed_installs": "Managed Installs"
 }

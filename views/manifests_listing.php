@@ -7,11 +7,8 @@ new Manifests_model;
 ?>
 
 <div class="container">
-
   <div class="row">
-
   	<div class="col-lg-12">
-
 		  <h3><span data-i18n="manifests.listing.title"></span> <span id="total-count" class='label label-primary'>…</span></h3>
 		  <table class="table table-striped table-condensed table-bordered">
 		    <thead>
@@ -25,9 +22,9 @@ new Manifests_model;
 		      </tr>
 		    </thead>
 		    <tbody>
-		    	<tr>
-					<td data-i18n="listing.loading" colspan="3" class="dataTables_empty"></td>
-				</tr>
+		      <tr>
+		        <td data-i18n="listing.loading" colspan="6" class="dataTables_empty"></td>
+		      </tr>
 		    </tbody>
 		  </table>
     </div> <!-- /span 12 -->
@@ -38,25 +35,27 @@ new Manifests_model;
 
 	$(document).on('appUpdate', function(e){
 
-		var oTable = $('.table').DataTable();
-		oTable.ajax.reload();
-		return;
-
+	    var oTable = $('.table').DataTable();
+	    oTable.ajax.reload();
+	    return;
 	});
 
 	$(document).on('appReady', function(e, lang) {
-		// Get column names from data attribute
-		var columnDefs = [],
+	    // Get column names from data attribute
+	    var columnDefs = [],
             col = 0; // Column counter
-		$('.table th').map(function(){
-              columnDefs.push({name: $(this).data('colname'), targets: col});
-              col++;
-		});
+	    $('.table th').map(function(){
+	        columnDefs.push({name: $(this).data('colname'), targets: col});
+	        col++;
+	    });
 	    oTable = $('.table').dataTable( {
 	        columnDefs: columnDefs,
 	        ajax: {
                 url: appUrl + '/datatables/data',
-                type: "POST"
+                type: "POST",
+                data: function(d){
+                     d.mrColNotEmpty = "manifest_name";
+                }
             },
             dom: mr.dt.buttonDom,
             buttons: mr.dt.buttons,
@@ -67,7 +66,6 @@ new Manifests_model;
 	        	var sn=$('td:eq(1)', nRow).html();
 	        	var link = mr.getClientDetailLink(name, sn);
 	        	$('td:eq(0)', nRow).html(link);
-
 	        }
 	    });
 	});

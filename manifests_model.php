@@ -18,6 +18,7 @@ class Manifests_model extends \Model {
 		$this->rs['featured_items'] = '';
 		$this->rs['condition'] = '';
 		$this->rs['conditional_items'] = '';
+		$this->rs['display_name'] = '';
 
 		$this->serial_number = $serial;
 	}
@@ -35,9 +36,13 @@ class Manifests_model extends \Model {
 	{
         // Check if data was uploaded
         if (! $json ) {
-            throw new Exception("Error Processing Request: No JSON file found", 1);
+            print_r("Error processing manifests module: No JSON file found");
 		}
-        // Process json into object thingy
+        		
+		// Delete previous set        
+		$this->deleteWhere('serial_number=?', $this->serial_number);
+        
+		// Process json into object thingy
 		$data = json_decode($json, true);
 
 		foreach ($data as $manifest_name => $manifest_array) {
@@ -47,14 +52,15 @@ class Manifests_model extends \Model {
 				//conditional items need more processing
 				if ($key == 'conditional_items'){
 					// figure out this process
-                } else if ($key == 'display_name'){
-					// maybe don't need this
+				} else if ($key == 'display_name'){
+					$this->$key = $value;
 				} else {
 					$this->$key = implode(", ", $value);
 				}
 			}
+
+			$this->id = '';
+			$this->save();  
 		}
-		$this->id = '';
-		$this->save();
 	}
 }

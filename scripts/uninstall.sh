@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove manifests script
-rm -f "${MUNKIPATH}preflight.d/manifests.sh"
+rm -f "${MUNKIPATH}preflight.d/manifests.py"
 
-# Remove manifests.txt file
-rm -f "${MUNKIPATH}preflight.d/cache/manifests.txt"
+# Remove manifests.json file
+rm -f "${MUNKIPATH}preflight.d/cache/manifests.json"

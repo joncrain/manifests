@@ -10,17 +10,18 @@ class Manifests extends Migration
         $capsule = new Capsule();
         $capsule::schema()->create('manifests', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('serial_number')->unique();
+            $table->string('serial_number');
             $table->string('manifest_name')->nullable();
-            $table->string('catalogs')->nullable();
-            $table->string('included_manifests')->nullable();
-            $table->string('managed_installs')->nullable();
-            $table->string('managed_uninstalls')->nullable();
-            $table->string('optional_installs')->nullable();
-            $table->string('managed_updates')->nullable();
-            $table->string('featured_items')->nullable();
-            $table->string('condition')->nullable();
-            $table->string('conditional_items')->nullable();
+            $table->text('catalogs')->nullable();
+            $table->text('included_manifests')->nullable();
+            $table->text('managed_installs')->nullable();
+            $table->text('managed_uninstalls')->nullable();
+            $table->text('optional_installs')->nullable();
+            $table->text('managed_updates')->nullable();
+            $table->text('featured_items')->nullable();
+            $table->text('condition')->nullable();
+            $table->text('conditional_items')->nullable();
+            $table->string('display_name')->nullable();
         });
     }
     

@@ -50,9 +50,10 @@ def main():
         manifests = {}
     else:
         manifests = {}
-        for manifest in os.listdir(MANAGED_INSTALL_MANIFESTS):
-            manifest_path = os.path.join(MANAGED_INSTALL_MANIFESTS, manifest)
-            manifests[manifest] = dict_from_plist(manifest_path)
+        for path, subdirs, files in os.walk(MANAGED_INSTALL_MANIFESTS):
+            for name in files:
+                manifest_path = os.path.join(path, name)
+                manifests[name] = dict_from_plist(manifest_path)
 
     manifest_cache = os.path.join(cachedir, 'manifests.json')
 

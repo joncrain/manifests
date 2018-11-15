@@ -7,7 +7,4 @@ return array(
     'listings' => array(
         'manifests' => array('view' => 'manifests_listing', 'i18n' => 'manifests.listing.title'),
     ),
-    'reports' => array(
-        'manifests' => array('view' => 'manifests_report', 'i18n' => 'manifests.report.title'),
-    ),
 );

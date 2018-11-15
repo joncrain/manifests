@@ -29,7 +29,7 @@ class Manifests_model extends \Model {
 	*
 	* @param string data
 	* @author joncrain
-    * based on homebrew by tuxudo
+	* based on homebrew by tuxudo
 	**/
 	function process($json)
 	{

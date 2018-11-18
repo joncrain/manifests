@@ -8,7 +8,7 @@
 
     <div class="row">
 
-        <?php $widget->view($this, 'manifests'); ?>
+        <?php $widget->view($this, 'manifests-munki'); ?>
 
     </div> <!-- /row -->
 

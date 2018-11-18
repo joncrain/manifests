@@ -7,7 +7,8 @@
         "title": "Munki Manifests Report"
     },
     "widget": {
-        "title": "Munki Manifests Widget"
+        "title": "Munki Manifests Widget",
+        "catalog": "Munki Catalog Widget"
     },
     "manifest_name": "Manifest Name",
     "catalogs": "Catalogs",

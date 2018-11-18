@@ -51,4 +51,36 @@ class Manifests_controller extends Module_controller
         $obj->view('json', array('msg' => $manifests_tab));
     }
 
+    /**
+     * Get manifests statistics
+     *
+     *
+     **/
+    public function get_manifest_stats()
+    {
+        $obj = new View();
+        if (! $this->authorized()) {
+            $obj->view('json', array('msg' => array('error' => 'Not authorized')));
+        } else {
+            $mrm = new Manifests_model();
+            $obj->view('json', array('msg' => $mrm->get_manifest_stats()));
+        }
+    }
+
+    /**
+     * Get catalogs statistics
+     *
+     *
+     **/
+    public function get_catalog_stats()
+    {
+        $obj = new View();
+        if (! $this->authorized()) {
+            $obj->view('json', array('msg' => array('error' => 'Not authorized')));
+        } else {
+            $mrm = new Manifests_model();
+            $obj->view('json', array('msg' => $mrm->get_catalog_stats()));
+        }
+    }
+
 } // END class default_module

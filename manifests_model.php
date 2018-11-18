@@ -63,4 +63,54 @@ class Manifests_model extends \Model {
 			$this->save();  
 		}
 	}
+
+	/**
+     * Get manifests statistics
+     *
+     *
+     **/
+    public function get_manifest_stats()
+    {
+        $out = array();
+        $filter = get_machine_group_filter();
+        $sql = "SELECT COUNT(1) AS count, manifest_name
+            FROM manifests
+            LEFT JOIN reportdata USING (serial_number)
+            $filter AND manifest_name <> 'SelfServeManifest'
+            GROUP BY manifest_name
+            ORDER BY count DESC";
+
+        foreach ($this->query($sql) as $obj) {
+            $obj->manifest_name = $obj->manifest_name ? $obj->manifest_name : 'Unknown';
+            $out[] = $obj;
+        }
+
+        return $out;
+    }
+
+	/**
+     * Get catalog statistics
+     *
+     *
+     **/
+    public function get_catalog_stats()
+    {
+        $out = array();
+        $filter = get_machine_group_filter();
+        $sql = "SELECT COUNT(1) AS count, catalogs
+            FROM manifests
+            LEFT JOIN reportdata USING (serial_number)
+            $filter AND catalogs <> '' AND manifest_name <> 'SelfServeManifest'
+            GROUP BY catalogs
+            ORDER BY count DESC";
+
+        foreach ($this->query($sql) as $obj) {
+            $obj->catalogs = $obj->catalogs ? $obj->catalogs : '0';
+            $out[] = $obj;
+        }
+
+        return $out;
+    }
+
+
 }

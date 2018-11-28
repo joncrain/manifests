@@ -1,8 +1,8 @@
 <div class="col-lg-4 col-md-6">
 
-    <div class="panel panel-default" id="manifests-munki-widget">
+    <div class="panel panel-default" id="manifests-included-widget">
 
-        <div id="manifests-munki-widget" class="panel-heading" data-container="body" data-i18n="[title]manifests.manifests_widget_title">
+        <div id="manifests-included-widget" class="panel-heading" data-container="body" data-i18n="[title]manifests.manifests_widget_title">
 
             <h3 class="panel-title"><i class="fa fa-book"></i> 
                 <span data-i18n="manifests.widget.title"></span>
@@ -23,7 +23,7 @@ $(document).on('appUpdate', function(e, lang) {
 
 	$.getJSON( appUrl + '/module/manifests/get_manifest_stats', function( data ) {
 		
-        var list = $('#manifests-munki-widget div.scroll-box').empty();
+        var list = $('#manifests-included-widget div.scroll-box').empty();
 
 		if(data.length){
 

@@ -1,5 +1,5 @@
 <div id="manifests-tab"></div>
-<h2 data-i18n="manifests.clienttab"></h2>
+<h2 data-i18n="manifests.client_tab"></h2>
 
 
 <script>

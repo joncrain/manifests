@@ -7,8 +7,8 @@
         "title": "Munki Manifests Report"
     },
     "widget": {
-        "title": "Munki Manifests Widget",
-        "catalog": "Munki Catalog Widget"
+        "title": "Included Manifests",
+        "catalog": "Munki Catalogs"
     },
     "manifest_name": "Manifest Name",
     "catalogs": "Catalogs",
@@ -18,6 +18,6 @@
     "display_name": "Display Name",
     "managed_updates": "Managed Updates",
     "featured_items": "Featured Items",
-    "clienttab": "Munki Manifests",
+    "client_tab": "Munki Manifests",
     "managed_installs": "Managed Installs"
 }

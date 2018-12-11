@@ -19,7 +19,7 @@ class Manifests extends Migration
             $table->text('optional_installs')->nullable();
             $table->text('managed_updates')->nullable();
             $table->text('featured_items')->nullable();
-            $table->text('condition')->nullable();
+            $table->text('condition_check')->nullable();
             $table->text('conditional_items')->nullable();
             $table->string('display_name')->nullable();
         });

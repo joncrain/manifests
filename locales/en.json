@@ -19,5 +19,7 @@
     "managed_updates": "Managed Updates",
     "featured_items": "Featured Items",
     "client_tab": "Munki Manifests",
-    "managed_installs": "Managed Installs"
+    "managed_installs": "Managed Installs",
+    "condition_check": "Condition",
+    "conditional_items": "Conditional Items"
 }

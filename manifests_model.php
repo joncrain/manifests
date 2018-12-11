@@ -110,6 +110,8 @@ class Manifests_model extends \Model {
                     if ($key == 'conditional_items'){
                         // encode as JSON for processing later
                         $this->$key = json_encode($value);
+                    } else if ($key == 'condition'){
+                        $this->condition_check = $value;
                     } else if ($key == 'display_name'){
                         $this->$key = $value;
                     } else {

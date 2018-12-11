@@ -15,7 +15,7 @@ $(document).on('appReady', function(){
 			for (var prop in d){
 				// Skip skipThese
 				if(skipThese.indexOf(prop) == -1){
-					if(d[prop] == '' || prop == 'manifest_name'){
+					if(d[prop] == '' || d[prop] == null || prop == 'manifest_name'){
 					   // Do nothing for a blank entry
                     } 
                     else {

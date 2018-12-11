@@ -16,7 +16,7 @@ class Manifests_model extends \Model {
 		$this->rs['optional_installs'] = '';
 		$this->rs['managed_updates'] = '';
 		$this->rs['featured_items'] = '';
-		$this->rs['condition'] = '';
+		$this->rs['condition_check'] = '';
 		$this->rs['conditional_items'] = '';
 		$this->rs['display_name'] = '';
 

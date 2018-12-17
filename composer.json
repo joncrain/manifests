@@ -1,5 +1,5 @@
 {
-    "name": "joncrain/mr-manifests",
+    "name": "joncrain/manifests",
     "description": "Munki Manifest module for munkireport.",
     "license": "MIT",
     "require": {

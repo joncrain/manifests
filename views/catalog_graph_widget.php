@@ -24,6 +24,8 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
+
+
     var conf = {
         url: appUrl + '/module/manifests/get_catalog_stats', // Url for json
         widget: 'catalog_graph-widget', // Widget id
@@ -31,8 +33,8 @@ $(document).on('appReady', function(e, lang) {
             var label = e.data.catalogs;
             window.location.href = appUrl + '/show/listing/reportdata/clients#' + label;
         },
-        labelModifier: function(catalogs){
-            return catalogs
+        labelModifier: function(label){
+            return label
         }
     };
 

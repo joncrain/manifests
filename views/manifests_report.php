@@ -13,6 +13,12 @@
 
     </div> <!-- /row -->
 
+    <div class="row">
+
+        <?php $widget->view($this, 'manifests-catalog-graph'); ?>
+   
+    </div> <!-- /row -->
+
 </div>  <!-- /container -->
 
 <script src="<?php echo conf('subdirectory'); ?>assets/js/munkireport.autoupdate.js"></script>

@@ -58,7 +58,7 @@ class Manifests_model extends \Model {
     {
         $out = array();
         $filter = get_machine_group_filter();
-        $sql = "SELECT COUNT(1) AS count, catalogs
+        $sql = "SELECT COUNT(1) AS count, catalogs AS label
             FROM manifests
             LEFT JOIN reportdata USING (serial_number)
             $filter AND catalogs <> '' AND manifest_name <> 'SelfServeManifest'

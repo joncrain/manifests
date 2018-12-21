@@ -24,20 +24,20 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
-    var url = appUrl + '/module/manifests/get_catalog_stats' // Url for json
     var widget = 'catalog_graph-widget' // Widget id
     var svg = '#' + widget + ' svg';
-    var chart
+    var chart;
 
-    d3.json(url, function(data) {
+	var drawGraph = function(){
+        var url = appUrl + '/module/manifests/get_catalog_stats' // Url for json
 
-        nv.addGraph(function() {
-            var chart = nv.models.pieChart()
-                .x(function(d) { return d.catalogs })
-                .y(function(d) { return d.count })
-                .showLegend(true)
-                .showLabels(false);
-
+        d3.json(url, function(data) {
+            nv.addGraph(function() {
+                var chart = nv.models.pieChart()
+                    .x(function(d) { return d.catalogs })
+                    .y(function(d) { return d.count })
+                    .showLegend(true)
+                    .showLabels(false);
             d3.select(svg)
                 .datum(data)
                 .transition().duration(1200)
@@ -46,10 +46,14 @@ $(document).on('appReady', function(e, lang) {
             chart.tooltip.valueFormatter(function(d){return d});
             chart.update();
 
-            return chart;
-
+            });
         });
-    });
+    };
+
+    drawGraph();
+
+    $(document).on('appUpdate', function(){drawGraph()});
+
 });
 
 </script>

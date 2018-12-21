@@ -24,7 +24,7 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
-    var url = 'http://localhost:8080/test.json' // Url for json
+    var url = appUrl + '/module/manifests/get_catalog_stats' // Url for json
     var widget = 'catalog_graph-widget' // Widget id
     var svg = '#' + widget + ' svg';
     var chart
@@ -33,11 +33,10 @@ $(document).on('appReady', function(e, lang) {
 
         nv.addGraph(function() {
             var chart = nv.models.pieChart()
-                .x(function(d) { return d.label })
+                .x(function(d) { return d.catalogs })
                 .y(function(d) { return d.count })
                 .showLegend(true)
                 .showLabels(false);
-                // .tooltip.valueFormatter(d3.format('d'));
 
             d3.select(svg)
                 .datum(data)
@@ -45,16 +44,12 @@ $(document).on('appReady', function(e, lang) {
                 .call(chart);
 
             chart.tooltip.valueFormatter(function(d){return d});
-            // chart.update();
+            chart.update();
 
             return chart;
 
         });
-
-
-
     });
-
 });
 
 </script>

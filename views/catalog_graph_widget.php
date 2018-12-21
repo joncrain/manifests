@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<div class="col-lg-4">
 
 <div class="panel panel-default" id="catalog_graph-widget">
 
@@ -13,7 +13,7 @@
 
     <div class="panel-body">
 
-<svg style="width:100%"></svg>
+<svg style="width:100%; height: 300px"></svg>
 
 </div>
 
@@ -24,21 +24,36 @@
 <script>
 $(document).on('appReady', function(e, lang) {
 
+    var url = 'http://localhost:8080/test.json' // Url for json
+    var widget = 'catalog_graph-widget' // Widget id
+    var svg = '#' + widget + ' svg';
+    var chart
+
+    d3.json(url, function(data) {
+
+        nv.addGraph(function() {
+            var chart = nv.models.pieChart()
+                .x(function(d) { return d.label })
+                .y(function(d) { return d.count })
+                .showLegend(true)
+                .showLabels(false);
+                // .tooltip.valueFormatter(d3.format('d'));
+
+            d3.select(svg)
+                .datum(data)
+                .transition().duration(1200)
+                .call(chart);
+
+            chart.tooltip.valueFormatter(function(d){return d});
+            // chart.update();
+
+            return chart;
+
+        });
 
 
-    var conf = {
-        url: appUrl + '/module/manifests/get_catalog_stats', // Url for json
-        widget: 'catalog_graph-widget', // Widget id
-        elementClickCallback: function(e){
-            var label = e.data.catalogs;
-            window.location.href = appUrl + '/show/listing/reportdata/clients#' + label;
-        },
-        labelModifier: function(label){
-            return label
-        }
-    };
 
-    mr.addGraph(conf);
+    });
 
 });
 

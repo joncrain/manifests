@@ -28,9 +28,9 @@ $(document).on('appUpdate', function(e, lang) {
 		if(data.length){
 
 			// Sort on manifest_name
-			data.sort(function(a,b){
-				return mr.naturalSort(a.manifest_name, b.manifest_name);
-			});
+			// data.sort(function(a,b){
+			// 	return mr.naturalSort(a.manifest_name, b.manifest_name);
+			// });
 
 			$.each(data, function(i,d){
 				var badge = '<span class="badge pull-right">'+d.count+'</span>';

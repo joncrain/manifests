@@ -19,6 +19,12 @@ new Manifests_model;
 		        <th data-i18n="manifests.manifest_name" data-colname='manifests.manifest_name'></th>
 		        <th data-i18n="manifests.catalogs" data-colname='manifests.catalogs'></th>
 		        <th data-i18n="manifests.managed_installs" data-colname='manifests.managed_installs'></th>
+		        <th data-i18n="manifests.managed_uninstalls" data-colname='manifests.managed_uninstalls'></th>
+		        <th data-i18n="manifests.optional_installs" data-colname='manifests.optional_installs'></th>
+		        <th data-i18n="manifests.managed_updates" data-colname='manifests.managed_updates'></th>
+		        <th data-i18n="manifests.featured_items" data-colname='manifests.featured_items'></th>
+		        <th data-i18n="manifests.conditional_items" data-colname='manifests.conditional_items'></th>
+		        <th data-i18n="manifests.condition_check" data-colname='manifests.condition_check'></th>
 		      </tr>
 		    </thead>
 		    <tbody>

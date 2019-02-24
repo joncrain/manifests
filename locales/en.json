@@ -22,5 +22,6 @@
     "client_tab": "Munki Manifests",
     "managed_installs": "Managed Installs",
     "condition_check": "Condition",
-    "conditional_items": "Conditional Items"
+    "conditional_items": "Conditional Items",
+    "no_data": "No manifest data"
 }

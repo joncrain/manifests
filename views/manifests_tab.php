@@ -23,48 +23,7 @@ $(document).on('appReady', function(){
                     if(skipThese.indexOf(prop) == -1){
                         if(d[prop] == '' || d[prop] == null || prop == 'manifest_name'){
                            // Do nothing for a blank entry
-                        } 
-                        
-                        
-//                        // Else if build out the conditional_items table
-//                        } else if(prop == "conditional_items"){
-//                            var cond_items_data = JSON.parse(d['conditional_items']);
-//                            
-//                            // Process each condition
-//                            $.each(cond_items_data, function(i,condition){
-//                                // Process each action
-//                                $.each(condition, function(i,d){
-//                                
-//                                    
-//                                  
-//                                    
-//                                    
-//                                    
-//                                
-//                                
-//                                })
-//                            })
-//                            
-//                            
-//                            
-//                            
-//                            
-//                            rows_conditions = '<tr><th>'+i18n.t('manifests.application')+'</th><th>'+i18n.t('manifests.application_id')+'</th><th>'+i18n.t('manifests.title')+'</th><th>'+i18n.t('manifests.versionondisk')+'</th><th>'+i18n.t('manifests.baseline_version')+'</th><th>'+i18n.t('manifests.update_version')+'</th><th>'+i18n.t('manifests.date')+'</th></tr>'
-//                            
-//                            $.each(cond_items_data, function(i,d){
-//                                if (typeof d['application_id'] !== "undefined"){var application_id = d['application_id']}else{var application_id = ""}
-//                                if (typeof d['title'] !== "undefined"){var title = d['title']}else{var title = ""}
-//                                if (typeof d['versionondisk'] !== "undefined"){var versionondisk = d['versionondisk']}else{var versionondisk = ""}
-//                                if (typeof d['baseline_version'] !== "undefined"){var baseline_version = d['baseline_version']}else{var baseline_version = ""}
-//                                if (typeof d['update_version'] !== "undefined"){var update_version = d['update_version']}else{var update_version = ""}
-//                                if (typeof d['date'] !== "undefined"){var date = d['date']}else{var date = ""}
-//                                // Generate rows from data
-//                                rows_conditions = rows_conditions + '<tr><td>'+i+'</td><td>'+application_id+'</td><td>'+title+'</td><td>'+versionondisk+'</td><td>'+baseline_version+'</td><td>'+update_version+'</td><td>'+date+'</td></tr>';
-//                                
-//                            })
-//                            rows_conditions = rows_conditions // Close conditional_items table framework
-                            
-                        else if(prop == 'conditional_items'){
+                        } else if(prop == 'conditional_items'){
                             
                             rows = rows + '<tr><td colspan="2"><table><tr><th>'+i18n.t('manifests.'+prop)+'</th></tr>';
                             var nested_rows = '';

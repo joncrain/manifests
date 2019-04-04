@@ -37,7 +37,7 @@ class Manifests_model extends \Model {
         $sql = "SELECT COUNT(1) AS count, manifest_name
             FROM manifests
             LEFT JOIN reportdata USING (serial_number)
-            $filter AND manifest_name <> 'SelfServeManifest'
+            $filter
             GROUP BY manifest_name
             ORDER BY count DESC";
 

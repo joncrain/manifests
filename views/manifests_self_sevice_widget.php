@@ -2,7 +2,7 @@
     <div class="panel panel-default" id="manifests-self-service-widget">
         <div id="manifests-self-service-widget" class="panel-heading" data-container="body">
             <h3 class="panel-title"><i class="fa fa-user"></i> 
-                <span data-i18n="manifests.self_sevice"></span>
+                <span data-i18n="manifests.self_service"></span>
                 <list-link data-url="/show/listing/manifests/manifests"></list-link>
             </h3>
         </div>
@@ -25,7 +25,7 @@ $(document).on('appUpdate', function(e, lang) {
 			});
 		}
 		else{
-			list.append('<span class="list-group-item">'+i18n.t('manifests.no_self_sevice')+'</span>');
+			list.append('<span class="list-group-item">'+i18n.t('manifests.no_self_service')+'</span>');
 		}
     });
 });

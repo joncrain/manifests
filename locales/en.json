@@ -26,6 +26,8 @@
     "no_managed_updates": "No Managed Updates",
     "featured_items": "Featured Items",
     "no_featured_items": "No Featured Items",
+    "manifest_count": "Manifests per Computer",
+    "no_manifest_count": "No Manifests",
     "client_tab": "Munki Manifests",
     "managed_installs": "Managed Installs",
     "no_managed_installs": "No Managed Installs",

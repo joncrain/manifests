@@ -25,8 +25,8 @@
     <div class="row">
 
         <?php $widget->view($this, 'manifests_optional_installs'); ?>
-        <?php $widget->view($this, 'manifests_included_manifests'); ?>
-        <?php $widget->view($this, 'manifests_self_sevice'); ?>
+        <?php $widget->view($this, 'manifests_manifest_count'); ?>
+        <?php $widget->view($this, 'manifests_self_service'); ?>
    
     </div> <!-- /row -->
     

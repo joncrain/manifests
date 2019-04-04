@@ -13,8 +13,8 @@ return array(
         'manifests_optional_installs' => array('view' => 'manifests_optional_installs_widget'),
         'manifests_managed_updates' => array('view' => 'manifests_managed_updates_widget'),
         'manifests_featured_items' => array('view' => 'manifests_featured_items_widget'),
-        'manifests_included_manifests' => array('view' => 'manifests_included_manifests_widget'),
-        'manifests_self_sevice' => array('view' => 'manifests_self_sevice_widget'),
+        'manifests_manifest_count' => array('view' => 'manifests_manifest_count_widget'),
+        'manifests_self_service' => array('view' => 'manifests_self_service_widget'),
     ),
     'listings' => array(
         'manifests' => array('view' => 'manifests_listing', 'i18n' => 'manifests.listing.title'),

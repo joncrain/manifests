@@ -15,7 +15,7 @@
 <script>
 $(document).on('appUpdate', function(e, lang) {
 
-	$.getJSON( appUrl + '/module/manifests/get_self_sevice', function( data ) {
+	$.getJSON( appUrl + '/module/manifests/get_self_service', function( data ) {
 		
         var list = $('#manifests-self-service-widget div.scroll-box').empty();
 		if(data.length){

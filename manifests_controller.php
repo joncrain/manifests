@@ -294,13 +294,13 @@ class Manifests_controller extends Module_controller
     }
     
     /**
-     * Get included_manifests manifest widget
+     * Get manifest_count manifest widget
      *
      * @return void
      * @author tuxudo
      *
      **/
-    public function get_included_manifests()
+    public function get_manifest_count()
     {
         $obj_view = new View();
 
@@ -342,7 +342,7 @@ class Manifests_controller extends Module_controller
      * @author tuxudo
      *
      **/
-    public function get_self_sevice()
+    public function get_self_service()
     {
         $obj_view = new View();
 

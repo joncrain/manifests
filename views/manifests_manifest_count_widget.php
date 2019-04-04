@@ -2,7 +2,7 @@
 	<div class="panel panel-default" id="manifests_included_manifests-widget">
 		<div id="manifests_included_manifests-widget" class="panel-heading" data-container="body">
 			<h3 class="panel-title"><i class="fa fa-book"></i>
-			    <span data-i18n="manifests.included_manifests"></span>
+			    <span data-i18n="manifests.manifest_count"></span>
 			    <list-link data-url="/show/listing/manifests/manifests"></list-link>
 			</h3>
 		</div>
@@ -15,7 +15,7 @@
 <script>
 $(document).on('appUpdate', function(e, lang) {
 
-	$.getJSON( appUrl + '/module/manifests/get_included_manifests', function( data ) {
+	$.getJSON( appUrl + '/module/manifests/get_manifest_count', function( data ) {
 		
         var list = $('#manifests_included_manifests-widget div.scroll-box').empty();
 		if(data.length){
@@ -26,7 +26,7 @@ $(document).on('appUpdate', function(e, lang) {
 			});
 		}
 		else{
-			list.append('<span class="list-group-item">'+i18n.t('manifests.no_included_manifests')+'</span>');
+			list.append('<span class="list-group-item">'+i18n.t('manifests.no_manifest_count')+'</span>');
 		}
     });
 });

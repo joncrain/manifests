@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-6">
     <div class="panel panel-default" id="manifests-self-service-widget">
         <div id="manifests-self-service-widget" class="panel-heading" data-container="body">
-            <h3 class="panel-title"><i class="fa fa-check-square"></i> 
+            <h3 class="panel-title"><i class="fa fa-user"></i> 
                 <span data-i18n="manifests.self_sevice"></span>
                 <list-link data-url="/show/listing/manifests/manifests"></list-link>
             </h3>

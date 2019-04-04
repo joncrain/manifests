@@ -40,8 +40,6 @@ class Manifests_controller extends Module_controller
             return;
         }
 
-        // $manifests = new manifests_model($serial_number);
-        // $obj->view('json', array('msg' => $manifests->rs));
         $queryobj = new Manifests_model;
         $manifests_tab = array();
         foreach($queryobj->retrieve_records($serial_number) as $manifestEntry) {

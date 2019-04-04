@@ -352,11 +352,11 @@ class Manifests_controller extends Module_controller
         $queryobj = new Manifests_model;
         $out = array();
 
-        $sql = "SELECT DISTINCT machine.computer_name, serial_number, included_manifests
+        $sql = "SELECT DISTINCT machine.computer_name, serial_number, manifest_name
                 FROM manifests
                 LEFT JOIN machine USING(serial_number)
                 LEFT JOIN reportdata USING (serial_number)
-                WHERE included_manifests <> '' AND included_manifests IS NOT NULL AND included_manifests LIKE '%SelfServe%' 
+                WHERE manifest_name <> '' AND manifest_name IS NOT NULL AND manifest_name LIKE '%SelfServe%' 
                 ".get_machine_group_filter('AND');
 
         $obj_view->view('json', array('msg' => $queryobj->query($sql)));

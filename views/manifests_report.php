@@ -10,9 +10,26 @@
 
         <?php $widget->view($this, 'manifests-included'); ?>
         <?php $widget->view($this, 'manifests-catalog'); ?>
+        <?php $widget->view($this, 'manifests_featured_items'); ?>
 
     </div> <!-- /row -->
 
+    <div class="row">
+
+        <?php $widget->view($this, 'manifests_managed_installs'); ?>
+        <?php $widget->view($this, 'manifests_managed_uninstalls'); ?>
+        <?php $widget->view($this, 'manifests_managed_updates'); ?>
+   
+    </div> <!-- /row -->
+    
+    <div class="row">
+
+        <?php $widget->view($this, 'manifests_optional_installs'); ?>
+        <?php $widget->view($this, 'manifests_manifest_count'); ?>
+        <?php $widget->view($this, 'manifests_self_service'); ?>
+   
+    </div> <!-- /row -->
+    
     <div class="row">
 
         <?php $widget->view($this, 'manifests-catalog-graph'); ?>

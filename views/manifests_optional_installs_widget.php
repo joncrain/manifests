@@ -31,6 +31,3 @@ $(document).on('appUpdate', function(e, lang) {
     });
 });
 </script>
-
-
-

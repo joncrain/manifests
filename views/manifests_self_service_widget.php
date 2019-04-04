@@ -3,6 +3,7 @@
         <div id="manifests-self-service-widget" class="panel-heading" data-container="body">
             <h3 class="panel-title"><i class="fa fa-user"></i> 
                 <span data-i18n="manifests.self_service"></span>
+                <span class="counter badge"></span>
                 <list-link data-url="/show/listing/manifests/manifests"></list-link>
             </h3>
         </div>
@@ -12,24 +13,30 @@
     </div><!-- /panel -->
 </div><!-- /col -->
 
-<script>
-$(document).on('appUpdate', function(e, lang) {
+<script> 
+$(document).on('appUpdate', function(){
 
 	$.getJSON( appUrl + '/module/manifests/get_self_service', function( data ) {
-		
-        var list = $('#manifests-self-service-widget div.scroll-box').empty();
-		if(data.length){
 
-			$.each(data, function(i,d){
-                list.append('<a href="'+appUrl+'/show/listing/manifests/manifests/#'+d.serial_number+'" class="list-group-item">'+d.computer_name+'</a>')
-			});
+		var scrollBox = $('#manifests-self-service-widget .scroll-box').empty();
+		$.each(data, function(index, obj){
+
+			scrollBox
+				.append($('<a>')
+					.addClass('list-group-item')
+					.attr('href', appUrl + '/show/listing/manifests/manifests/#' + obj.serial_number)
+					.append(obj.computer_name))
+
+		});
+
+		$('#manifests-self-service-widget .counter').html(data.length);
+
+		if( ! data.length){
+			scrollBox
+				.append($('<span>')
+					.addClass('list-group-item')
+					.text(i18n.t('manifests.no_self_service')))
 		}
-		else{
-			list.append('<span class="list-group-item">'+i18n.t('manifests.no_self_service')+'</span>');
-		}
-    });
+	});
 });
 </script>
-
-
-

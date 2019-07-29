@@ -3,11 +3,13 @@
 
 <script>
 $(document).on('appReady', function(){
+	mr.mwa2Link = "<?=conf('mwa2_link')?>";
+
 	$.getJSON(appUrl + '/module/manifests/get_data/' + serialNumber, function(data){
 		// Set count of manifests items
-		$('#manifests-cnt').text(data.length);
-        
-		// If there are no date, output message
+		$('#manifests-cnt').text(data.length); 
+		
+        // If there are no date, output message
         if (!data.length) {
             $('#displays-tab')
                 .append($('<h4>')
@@ -52,11 +54,22 @@ $(document).on('appReady', function(){
                         }
                     }
                 }
+                
+                if (mr.mwa2Link !== "") {
+                    if (d.manifest_name !== "SelfServeManifest") {
+                        link=' <a href="'+mr.mwa2Link+'/manifests/#'+d.manifest_name+'">'+d.manifest_name+'</a>'
+                    } else {
+                        link=' '+d.manifest_name
+                    }
+                } else {
+                    link=' '+d.manifest_name
+                }
+
                 $('#manifests-tab')
                     .append($('<h4>')
                         .append($('<i>')
                             .addClass('fa fa-book'))
-                        .append(' '+d.manifest_name))
+                            .append(link))
                     .append($('<div style="max-width:1600px;">')
 //                        .addClass('table-responsive')
                         .append($('<table>')

@@ -6,6 +6,11 @@
     "report": {
         "title": "Munki Manifests Report"
     },
+    "detail_widget": {
+        "title": "Munki Manifests",
+        "manifest_item": "Included Manifests",
+        "catalog_item": "Included Catalogs"
+    },
     "widget": {
         "title": "Included Manifests",
         "catalog": "Munki Catalogs",

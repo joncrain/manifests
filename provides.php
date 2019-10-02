@@ -4,6 +4,9 @@ return array(
     'client_tabs' => array(
         'manifests-tab' => array('view' => 'manifests_tab', 'i18n' => 'manifests.listing.title'),
     ),
+    'detail_widgets' => [
+        'manifests_detail' => ['view' => 'manifests_detail_widget'],
+    ],
     'widgets' => array(
         'manifests-included' => array('view' => 'included_manifests_widget'),
         'manifests-catalog' => array('view' => 'catalog_widget'),

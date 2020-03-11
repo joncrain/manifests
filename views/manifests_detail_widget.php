@@ -4,7 +4,7 @@
 </div>
 
 <script>
-$(document).on('appReady', function(){
+$(document).on('appReady', function() {
     mr.mwa2Link = "<?=conf('mwa2_link')?>";
     $('#manifests-data')
         .append($('<tr>')
@@ -12,25 +12,26 @@ $(document).on('appReady', function(){
                 .text(i18n.t("manifests.detail_widget.manifest_item")))
             .append($('<th>')
                 .text(i18n.t("manifests.detail_widget.catalog_item"))));
-	// Get Manifests data
-	$.getJSON( appUrl + '/module/manifests/get_data/' + serialNumber, function( data ) {
-		$.each(data, function(index, item){
+    // Get Manifests data
+    $.getJSON(appUrl + '/module/manifests/get_data/' + serialNumber, function(data) {
+        $.each(data, function(index, item) {
             if (mr.mwa2Link !== "") {
-                    if (item.manifest_name !== "SelfServeManifest") {
-                        link=' <a href="'+mr.mwa2Link+'/manifests/#'+item.manifest_name+'">'+item.manifest_name+'</a>'
-                    } else {
-                        link=' '+item.manifest_name
-                    }
+                if (item.manifest_name !== "SelfServeManifest") {
+                    link = ' <a href="' + mr.mwa2Link + '/manifests/#' + item.manifest_name + '">' + item.manifest_name + '</a>'
                 } else {
-                    link=' '+item.manifest_name
+                    link = ' ' + item.manifest_name
                 }
+            } else {
+                link = ' <span>' + item.manifest_name + '</span>'
+            }
+
             $('#manifests-data')
                 .append($('<tr>')
                     .append($('<td>')
                         .append($(link)))
                     .append($('<td>')
                         .text(item.catalogs)));
-		});
+        });
     });
 });
 </script>

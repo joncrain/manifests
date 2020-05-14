@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -24,7 +25,7 @@ class Manifests extends Migration
             $table->string('display_name')->nullable();
         });
     }
-    
+
     public function down()
     {
         $capsule = new Capsule();

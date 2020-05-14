@@ -1,4 +1,5 @@
 <?php
+
 use munkireport\models\MRModel as Eloquent;
 
 class Manifests_model extends Eloquent

@@ -1,0 +1,7 @@
+type: scrollbox
+widget_id: catalog-widget
+api_url: /module/manifests/get_catalog_stats
+i18n_title: manifests.widget.catalog
+icon: fa-book
+listing_link: /show/listing/manifests/manifests
+search_key: catalogs

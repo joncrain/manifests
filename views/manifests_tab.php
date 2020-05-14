@@ -5,7 +5,7 @@
 $(document).on('appReady', function(){
 	mr.mwa2Link = "<?=conf('mwa2_link')?>";
 
-	$.getJSON(appUrl + '/module/manifests/get_data/' + serialNumber, function(data){
+	$.getJSON(appUrl + '/module/manifests/get_manifests_data/' + serialNumber, function(data){
 		// Set count of manifests items
 		$('#manifests-cnt').text(data.length); 
 		

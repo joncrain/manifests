@@ -1,0 +1,7 @@
+type: scrollbox
+widget_id: manifests-included-widget
+api_url: /module/manifests/get_manifest_stats
+i18n_title: manifests.widget.title
+icon: fa-book
+listing_link: /show/listing/manifests/manifests
+search_key: manifest_name

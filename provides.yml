@@ -1,0 +1,24 @@
+client_tabs:
+    manifests-tab:
+        view: manifests_tab
+        i18n: manifests.listing.title
+detail_widgets:
+    manifests_detail:
+        view: manifests_detail_widget
+widgets:
+    manifests-included:
+        view: included_manifests_widget
+    manifests-catalog:
+        view: catalog_widget
+    manifests-catalog-graph:
+        view: catalog_graph_widget
+    manifests_self_service:
+        view: manifests_self_service_widget
+listings:
+    manifests:
+        view: manifests_listing
+        i18n: manifests.listing.title
+reports:
+    manifests:
+        view: manifests_report
+        i18n: manifests.report.title

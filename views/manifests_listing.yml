@@ -1,0 +1,13 @@
+i18n_title: manifests.listing.title
+not_null_column: manifest_name
+table:
+  - column: machine.computer_name
+    i18n_header: listing.computername
+    formatter: clientDetail
+    tab_link: manifests-tab
+  - column: reportdata.serial_number
+    i18n_header: serial
+  - {i18n_header: username, column: reportdata.long_username}
+  - {i18n_header: manifests.manifest_name, column: manifests.manifest_name}
+  - {i18n_header: manifests.catalogs, column: manifests.catalogs}
+  - {i18n_header: manifests.managed_installs, column: manifests.managed_installs}

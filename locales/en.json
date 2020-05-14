@@ -16,6 +16,7 @@
         "catalog": "Munki Catalogs",
         "catalog_graph": "Munki Catalogs"
     },
+    "self_service_items": "Self Service Installs",
     "manifest_name": "Manifest Name",
     "catalogs": "Catalogs",
     "included_manifests": "Included Manifests",

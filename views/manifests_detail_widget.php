@@ -13,7 +13,7 @@
                 .append($('<th>')
                     .text(i18n.t("manifests.detail_widget.catalog_item"))));
         // Get Manifests data
-        $.getJSON(appUrl + '/module/manifests/get_data/' + serialNumber, function(data) {
+        $.getJSON(appUrl + '/module/manifests/get_manifests_data/' + serialNumber, function(data) {
             $.each(data, function(index, item) {
                 if (mr.mwa2Link !== "") {
                     if (item.manifest_name !== "SelfServeManifest") {

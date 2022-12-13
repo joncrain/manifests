@@ -11,7 +11,7 @@
 
             // If there are no date, output message
             if (!data.length) {
-                $('#displays-tab')
+                $('#manifests-tab')
                     .append($('<h4>')
                         .append(i18n.t('manifests.no_data')))
             } else {

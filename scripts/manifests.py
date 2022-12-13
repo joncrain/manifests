@@ -1,4 +1,4 @@
-#!/usr/local/munkireport/munkireport-python2
+#!/usr/local/munkireport/munkireport-python3
 import plistlib
 import os
 import sys
@@ -25,7 +25,7 @@ else:
 # Don't skip manual check
 if len(sys.argv) > 1:
     if sys.argv[1] == 'debug':
-        print '**** DEBUGGING ENABLED ****'
+        print('**** DEBUGGING ENABLED ****')
         DEBUG = True
         import pprint
         PP = pprint.PrettyPrinter(indent=4)
@@ -34,19 +34,15 @@ def dict_from_plist(path):
     """Returns a dict based on plist found in path"""
     try:
         return plistlib.readPlist(path)
-    except Exception, message:
+    except Exception as message:
         raise Exception("Error creating plist from output: %s" % message)
 
 def main():
     """Main"""
-    # Create cache dir if it does not exist
-    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
-    if not os.path.exists(cachedir):
-        os.makedirs(cachedir)
 
     # Check if MANAGED_INSTALL_MANIFESTS exists
     if not os.path.exists(MANAGED_INSTALL_MANIFESTS):
-        print '%s is missing.' % MANAGED_INSTALL_MANIFESTS
+        print('%s is missing.' % MANAGED_INSTALL_MANIFESTS)
         manifests = {}
     else:
         manifests = {}
@@ -54,7 +50,8 @@ def main():
             for name in files:
                 manifest_path = os.path.join(path, name)
                 manifests[name] = dict_from_plist(manifest_path)
-
+    
+    cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
     manifest_cache = os.path.join(cachedir, 'manifests.json')
 
     with open(manifest_cache, 'w') as fp:

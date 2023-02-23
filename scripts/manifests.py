@@ -33,7 +33,8 @@ if len(sys.argv) > 1:
 def dict_from_plist(path):
     """Returns a dict based on plist found in path"""
     try:
-        return plistlib.readPlist(path)
+        with open(path, 'rb') as fp:
+            return plistlib.load(fp)
     except Exception as message:
         raise Exception("Error creating plist from output: %s" % message)
 

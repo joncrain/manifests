@@ -1,17 +1,22 @@
 <div class="col-lg-4">
     <h4><i class="fa fa-book"></i> <span data-i18n="manifests.detail_widget.title"></span></h4>
-    <table id="manifests-data"></table>
+    <div id="manifests-data"></div>
 </div>
 
 <script>
     $(document).on('appReady', function() {
         mr.mwa2Link = "<?= conf('mwa2_link') ?>";
         $('#manifests-data')
-            .append($('<tr>')
-                .append($('<th>')
-                    .text(i18n.t("manifests.detail_widget.manifest_item")))
-                .append($('<th>')
-                    .text(i18n.t("manifests.detail_widget.catalog_item"))));
+            .append($('<table>')
+                .attr('id','manifests-data-table')
+                .addClass('table table-striped table-condensed')
+                .append($('<tbody>')
+                    .append($('<tr>')
+                        .append($('<th>')
+                            .text(i18n.t("manifests.detail_widget.manifest_item")))
+                        .append($('<th>')
+                            .text(i18n.t("manifests.detail_widget.catalog_item"))))));
+
         // Get Manifests data
         $.getJSON(appUrl + '/module/manifests/get_manifests_data/' + serialNumber, function(data) {
             $.each(data, function(index, item) {
@@ -25,7 +30,7 @@
                     link = ' <span>' + item.manifest_name + '</span>'
                 }
 
-                $('#manifests-data')
+                $('#manifests-data-table')
                     .append($('<tr>')
                         .append($('<td>')
                             .append($(link)))

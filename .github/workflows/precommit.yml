@@ -1,7 +1,6 @@
 name: pre-commit
 
 on:
-  push:
   workflow_dispatch: # manually triggered
 
 jobs:

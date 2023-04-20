@@ -1,0 +1,9 @@
+name: pre-commit
+
+on:
+  push:
+  workflow_dispatch: # manually triggered
+
+jobs:
+  call-workflow-in-another-repo:
+    uses: joncrain/workflow-templates/.github/workflows/reusable-precommit.yaml@main

@@ -1,24 +1,14 @@
 <div class="col-lg-4">
-
-    <div class="panel panel-default" id="catalog_graph-widget">
-
-        <div class="panel-heading">
-
-            <h3 class="panel-title"><i class="fa fa-globe"></i>
-                <span data-i18n="manifests.widget.catalog_graph"></span>
-                <list-link data-url="/show/listing/manifests/manifests"></list-link>
-            </h3>
-
+    <div class="card" id="catalog_graph-widget">
+        <div class="card-heading">
+            <i class="fa fa-globe"></i>
+            <span data-i18n="manifests.widget.catalog_graph"></span>
+            <a href="/show/listing/manifests/manifests" class="pull-right"><i class="fa fa-list"></i></a>
         </div>
-
-        <div class="panel-body">
-
+        <div class="card-body">
             <svg style="width:100%; height: 300px"></svg>
-
         </div>
-
-    </div><!-- /panel -->
-
+    </div><!-- /card -->
 </div><!-- /col-lg-4 -->
 
 <script>

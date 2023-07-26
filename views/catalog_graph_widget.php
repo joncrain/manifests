@@ -1,6 +1,6 @@
 <div class="col-lg-4">
     <div class="card" id="catalog_graph-widget">
-        <div class="card-heading">
+        <div class="card-header">
             <i class="fa fa-globe"></i>
             <span data-i18n="manifests.widget.catalog_graph"></span>
             <a href="/show/listing/manifests/manifests" class="pull-right"><i class="fa fa-list"></i></a>

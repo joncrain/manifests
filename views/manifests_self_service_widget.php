@@ -1,9 +1,9 @@
 <div class="col-lg-4 col-md-6">
 	<div class="card" id="manifests-self-service-widget">
-		<div id="manifests-self-service-widget" class="card-heading" data-container="body">
+		<div class="card-header" id="manifests-self-service-widget" data-container="body">
 			<i class="fa fa-user"></i>
 			<span data-i18n="manifests.self_service"></span>
-			<span class="counter badge"></span>
+			<span class="counter badge badge-secondary"></span>
 			<a href="/show/listing/manifests/manifests" class="pull-right"><i class="fa fa-list"></i></a>
 		</div>
 		<div class="list-group scroll-box">

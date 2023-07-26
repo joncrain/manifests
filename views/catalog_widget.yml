@@ -5,3 +5,4 @@ i18n_title: manifests.widget.catalog
 icon: fa-book
 listing_link: /show/listing/manifests/manifests
 search_key: catalogs
+badge: count

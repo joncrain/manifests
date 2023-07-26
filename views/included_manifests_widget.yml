@@ -5,3 +5,4 @@ i18n_title: manifests.widget.title
 icon: fa-book
 listing_link: /show/listing/manifests/manifests
 search_key: manifest_name
+badge: count
